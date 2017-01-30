@@ -1,0 +1,27 @@
+{
+  "name": "aframe-go",
+  "version": "1.0.0",
+  "description": "Aframe starterkit",
+  "repository": "git@github.com:shaundunne/aframe-go.git",
+  "author": "Shaun Dunne <shaun@studiozero.co>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run start-budo | npm run start-pug",
+    "start-pug": "pug src/*.pug --watch",
+    "start-budo": "budo src/assets/js/main.js:src/assets/js/bundle.js --serve assets/js/bundle.js --dir ./src/ --live --verbose --port 3000 -- -t [ babelify --presets [ es2015 ] ]",
+    "build": "pug *.pug && browserify index.js -o assets/bundle.js -t [ babelify --presets [ es2015 ] ] && rm -rf dist && mkdir dist && cp index.html dist && cp -r assets dist",
+    "deploy:upload": "surge -p dist -d {YOUR.SURGE.SH DOMAIN}",
+    "deploy": "npm run build && npm run deploy:upload"
+  },
+  "dependencies": {
+    "aframe": "^0.4.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.0.0",
+    "budo": "^9.4.7",
+    "pug": "^2.0.0-beta10",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}
