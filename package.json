@@ -6,13 +6,13 @@
   "author": "Shaun Dunne <shaun@studiozero.co>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run start-pug | npm run start-budo",
-    "start-pug": "pug src/*.pug --watch",
-    "start-budo": "budo src/assets/js/main.js:src/assets/js/bundle.js --serve assets/js/bundle.js --dir ./src/ --live --verbose --port 3000 -- -t [ babelify --presets [ es2015 ] ]",
-    "build": "npm run build-pug && npm run build-js && rm -rf dist && mkdir dist && cp src/index.html dist && cp -r src/assets dist",
-    "build-pug": "pug src/*.pug",
-    "build-js": "browserify src/assets/js/main.js -o src/assets/js/bundl
-    .js -- -t [ babelify --presets [ es2015 ] ]",
+    "start": "npm run start:pug & npm run start:budo",
+    "start:pug": "pug src/index.pug -o dist/ --watch",
+    "start:budo": "budo src/assets/js/main.js:src/assets/js/bundle.js --serve assets/js/bundle.js --dir ./dist/ --live --verbose --port 3000 -- -t [ babelify --presets [ es2015 ] ]",
+    "build": "npm run build:html && npm run build:js",
+    "build:html": "pug src/index.pug -o dist/",
+    "build:css":"node-sass src/assets/sass/index.scss | cssmin > dist/main.css",
+    "build:js": "browserify src/assets/js/main.js -o dist/bundle.js -t [ babelify --presets [ es2015 ] ]",
     "deploy:upload": "surge -p dist -d {YOUR.SURGE.SH DOMAIN}",
     "deploy": "npm run build && npm run deploy:upload"
   },
@@ -24,7 +24,11 @@
     "babelify": "^7.3.0",
     "browserify": "^14.0.0",
     "budo": "^9.4.7",
+    "cssmin": "^0.4.3",
+    "node-sass": "^4.5.0",
+    "postcss-cli": "^2.6.0",
     "pug": "^2.0.0-beta10",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "uglifyjs": "^2.4.10"
   }
 }
