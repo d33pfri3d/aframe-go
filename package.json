@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm run watch:html & npm run start:budo & npm run watch:css",
     "watch:html": "npm run build:html -- -w",
-    "start:budo": "budo src/assets/js/main.js:dist/assets/js/main.js --dir dist --live --verbose --port 3000 -- -t [ babelify --presets [ es2015 ] ]",
+    "start:budo": "budo src/assets/js/main.js:dist/assets/js/main.js --dir ./dist/ --serve assets/js/main.js --live --verbose --port 3000 -- -t [ babelify --presets [ es2015 ] ]",
     "watch:css": "npm run build:css -- -w",
     "prebuild": "rm -rf dist && mkdir dist dist/assets dist/assets/js dist/assets/css",
     "build": "npm run build:html & npm run build:js & npm run build:css",
