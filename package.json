@@ -6,15 +6,17 @@
   "author": "Shaun Dunne <shaun@studiozero.co>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run watch:html & npm run start:budo & npm run watch:css",
+    "start": "npm run watch:html & npm run start:budo & npm run watch:css & npm run watch:images",
     "watch:html": "npm run build:html -- -w",
     "start:budo": "budo src/assets/js/main.js:dist/assets/js/main.js --dir ./dist/ --serve assets/js/main.js --live --verbose --port 3000 -- -t [ babelify --presets [ es2015 ] ]",
-    "watch:css": "npm run build:css -- -w",
-    "prebuild": "rm -rf dist && mkdir dist dist/assets dist/assets/js dist/assets/css",
+    "prebuild": "rimraf dist/assts/{css/*,js/*,images/*}",
     "build": "npm run build:html & npm run build:js & npm run build:css",
     "build:html": "pug src/index.pug -o dist/",
     "build:css": "node-sass src/assets/sass/index.scss dist/assets/css/main.css",
     "build:js": "browserify src/assets/js/main.js -t [ babelify --presets [ es2015 ] ] | uglifyjs > dist/assets/js/main.js ",
+    "build:images": "imagemin src/assets/images/* -o dist/assets/images",
+    "watch:css": "onchange \"src/assets/scss\" -- npm run build:css",
+    "watch:images": "onchange \"src/assets/images\" -- npm run build:images",
     "deploy:upload": "surge -p dist -d {YOUR.SURGE.SH DOMAIN}",
     "deploy": "npm run build && npm run deploy:upload"
   },
@@ -26,9 +28,12 @@
     "babelify": "^7.3.0",
     "browserify": "^14.0.0",
     "budo": "^9.4.7",
+    "imagemin-cli": "^3.0.0",
     "node-sass": "^4.5.0",
+    "onchange": "^3.2.1",
     "pug": "^2.0.0-beta10",
     "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^2.5.4",
     "uglifyjs": "^2.4.10"
   }
 }
