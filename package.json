@@ -13,7 +13,7 @@
     "prebuild": "rm -rf dist && mkdir dist dist/assets dist/assets/js dist/assets/css",
     "build": "npm run build:html & npm run build:js & npm run build:css",
     "build:html": "pug src/index.pug -o dist/",
-    "build:css":"node-sass src/assets/sass/index.scss dist/assets/css/main.css",
+    "build:css": "node-sass src/assets/sass/index.scss dist/assets/css/main.css",
     "build:js": "browserify src/assets/js/main.js -t [ babelify --presets [ es2015 ] ] | uglifyjs > dist/assets/js/main.js ",
     "deploy:upload": "surge -p dist -d {YOUR.SURGE.SH DOMAIN}",
     "deploy": "npm run build && npm run deploy:upload"
