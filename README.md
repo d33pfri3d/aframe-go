@@ -15,3 +15,8 @@ I want to use Scss ( because I like it )
 I want to write ES6 ( samesies )
 
 I want to deploy to surge ( it's pretty quick and cool )
+
+---
+
+### I usually add additional tasks
+

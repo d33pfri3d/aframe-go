@@ -1,1 +1,1 @@
-import aframe from 'aframe'
+require('aframe')
