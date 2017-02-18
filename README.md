@@ -18,5 +18,7 @@ I want to deploy to surge ( it's pretty quick and cool )
 
 ---
 
-### I usually add additional tasks
+### I usually add additional tasks depending on the project. 
+
+
 
