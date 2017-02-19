@@ -21,4 +21,10 @@ I want to deploy to surge ( it's pretty quick and cool )
 ### I usually add additional tasks depending on the project. 
 
 
+### Tasks
+
+Change `{YOUR.SURGE.SH DOMAIN}` to a domain you'd like to use on surge, for example, `timetravelstuff.surge.sh`
+
+
+
 
