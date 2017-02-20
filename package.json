@@ -18,7 +18,7 @@
     "watch:css": "onchange \"src/assets/scss\" -- npm run build:css",
     "watch:images": "onchange \"src/assets/images\" -- npm run build:images",
     "deploy:upload": "surge -p dist -d {YOUR.SURGE.SH DOMAIN}",
-    "deploy": "npm run build && npm run deploy:upload"
+    "deploy": "run-s build deploy:upload"
   },
   "dependencies": {
     "aframe": "^0.4.1"
