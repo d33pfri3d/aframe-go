@@ -12,11 +12,22 @@ I want to use Pug  ( because I like it )
 
 I want to use Scss ( because I like it )
 
-I want to write ES6 ( samesies )
-
 I want to deploy to surge ( it's pretty quick and cool ) Why not Github? [Reasons can go here]
 
 ---
+
+### Getting Started
+
+I use `yarn` for package management - but its not required.
+
+Clone the project into current directory file `git clone git@github.com:shaundunne/aframe-go.git .`
+
+Install all dependencies - `npm install` or `yarn install`
+
+Setup the project (This runs a first build and creates some required directories in the `dist` folder) - `npm run setup`
+
+`npm start` starts a development server with livereload. It also watches files for changes.
+
 
 ### Dependencies
 
@@ -43,7 +54,6 @@ Move models from a src folder to a dist folder for deployment
 Move other media types ( sounds and videos etc )
 
 ### Tasks
-
 
 ```
 "start": "run-p start:budo watch:* & wait"
