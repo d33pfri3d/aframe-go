@@ -6,7 +6,7 @@
   "author": "Shaun Dunne <shaun@studiozero.co>",
   "license": "MIT",
   "scripts": {
-    "setup": "mkdir dist dist/assets dist/assets/js dist/assets/css && run-s build:*",
+    "setup": "mkdirp dist dist/assets dist/assets/js dist/assets/css && run-s build:*",
     "start": "run-p start:budo watch:* & wait",
     "start:budo": "budo src/assets/js/main.js:dist/assets/js/main.js --dir ./dist/ --serve assets/js/main.js --live --verbose --port 3000",
     "prebuild": "rimraf dist/assts/{css/*,js/*,images/*}",
@@ -30,6 +30,7 @@
     "browserify": "^14.0.0",
     "budo": "^9.4.7",
     "imagemin-cli": "^3.0.0",
+    "mkdirp": "^0.5.1",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.1",
     "onchange": "^3.2.1",
